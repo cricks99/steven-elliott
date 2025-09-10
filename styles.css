@@ -591,27 +591,31 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
 }
 
-/* Newsletter Signup Section */
-.newsletter-signup {
+/* Connect Section */
+.connect-section {
     padding: 4rem 0;
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
     color: var(--white);
     text-align: center;
 }
 
-.newsletter-content h2 {
+.connect-section .section-title {
     color: var(--white);
     margin-bottom: 1rem;
-    font-size: 2.2rem;
 }
 
-.newsletter-content p {
+.connect-subtitle {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    color: var(--white);
+    margin-bottom: 2.5rem;
     opacity: 0.9;
 }
 
-.newsletter-form .form-group {
+.connect-section .newsletter-content {
+    margin-bottom: 3rem;
+}
+
+.connect-section .newsletter-form .form-group {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -619,7 +623,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-.newsletter-form input {
+.connect-section .newsletter-form input {
     flex: 1;
     padding: 1rem 1.5rem;
     border: none;
@@ -627,23 +631,9 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
 }
 
-.newsletter-form input:focus {
+.connect-section .newsletter-form input:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-}
-
-/* Connect Section */
-.connect-section {
-    padding: 4rem 0;
-    background: var(--light-gray);
-    text-align: center;
-}
-
-.connect-subtitle {
-    font-size: 1.1rem;
-    color: var(--dark-gray);
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
 }
 
 .social-connect {
