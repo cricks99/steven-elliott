@@ -119,48 +119,151 @@
         </div>
     </section>
 
-    <!-- Get Involved -->
-    <section class="get-involved">
+    <!-- Help Steve Fight -->
+    <section class="help-steve-fight">
         <div class="container">
-            <h2 class="section-title">Join the Movement</h2>
-            <div class="involve-grid">
-                <div class="involve-card">
-                    <h3>Volunteer</h3>
-                    <p>Join our grassroots team and help spread our message</p>
-                    <a href="volunteer.html" class="btn btn-outline">Sign Up</a>
+            <h2 class="section-title">Help Steve Fight for Michigan</h2>
+            <p class="section-subtitle">Your support helps us take our conservative message to every corner of Michigan's 12th District</p>
+            <div class="donation-amounts">
+                <button class="amount-btn" data-amount="25" onclick="quickDonate(25)">$25</button>
+                <button class="amount-btn" data-amount="50" onclick="quickDonate(50)">$50</button>
+                <button class="amount-btn amount-popular" data-amount="100" onclick="quickDonate(100)">
+                    <span class="popular-badge">Most Popular</span>
+                    $100
+                </button>
+                <button class="amount-btn" data-amount="250" onclick="quickDonate(250)">$250</button>
+                <button class="amount-btn" data-amount="500" onclick="quickDonate(500)">$500</button>
+                <button class="amount-btn custom" data-amount="custom">Other</button>
+            </div>
+            <form id="donation-form" class="donation-form-homepage">
+                <input type="hidden" id="donation-amount" name="amount" value="">
+                <button type="submit" class="btn btn-donate-large">
+                    <span class="donate-icon">💳</span>
+                    Donate Now - Secure
+                </button>
+            </form>
+            <p class="donation-disclaimer">Contributions are not tax deductible. Maximum: $2,900 per individual per election.</p>
+        </div>
+    </section>
+
+    <!-- Learn More -->
+    <section class="learn-more">
+        <div class="container">
+            <h2 class="section-title">Learn More About Steven</h2>
+            <div class="learn-grid">
+                <div class="learn-card">
+                    <div class="learn-icon">👤</div>
+                    <h3>About Steven</h3>
+                    <p>Marine veteran, business owner, and conservative leader ready to fight for Michigan families</p>
+                    <a href="about.html" class="btn btn-outline">Read Biography →</a>
                 </div>
-                <div class="involve-card">
-                    <h3>Donate</h3>
-                    <p>Every contribution helps us fight for Michigan families</p>
-                    <a href="donate.html" class="btn btn-outline">Contribute</a>
+                <div class="learn-card">
+                    <div class="learn-icon">📋</div>
+                    <h3>Where He Stands</h3>
+                    <p>Detailed positions on the economy, border security, law enforcement, and constitutional rights</p>
+                    <a href="issues.html" class="btn btn-outline">View Issues →</a>
                 </div>
-                <div class="involve-card">
-                    <h3>Stay Updated</h3>
-                    <p>Get campaign updates delivered to your inbox</p>
-                    <form class="quick-signup">
-                        <input type="email" placeholder="Email address" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
+                <div class="learn-card">
+                    <div class="learn-icon">📺</div>
+                    <h3>Media & Press</h3>
+                    <p>Latest interviews, endorsements, and campaign coverage from across Michigan</p>
+                    <a href="news.html" class="btn btn-outline">See Coverage →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="social-proof">
+    <!-- Connect & Latest News -->
+    <section class="connect-news">
         <div class="container">
-            <div class="social-bar">
-                <div class="social-item">
-                    <h3>Connect With Steven</h3>
-                    <div class="social-links-inline">
-                        <a href="https://www.facebook.com/StevenElliottMI/" target="_blank">Facebook</a>
-                        <a href="https://twitter.com/StevenElliottMI" target="_blank">Twitter</a>
-                        <a href="https://www.instagram.com/StevenElliottMI/" target="_blank">Instagram</a>
+            <div class="connect-news-grid">
+                <!-- Social Media Connect -->
+                <div class="connect-section">
+                    <h2>Connect on Social Media</h2>
+                    <p>Follow Steven for daily updates, behind-the-scenes content, and direct engagement</p>
+                    <div class="social-connect-cards">
+                        <a href="https://www.facebook.com/StevenElliottMI/" target="_blank" class="social-card facebook">
+                            <span class="social-icon">📘</span>
+                            <div class="social-info">
+                                <h4>Facebook</h4>
+                                <p>Daily updates & community</p>
+                            </div>
+                        </a>
+                        <a href="https://twitter.com/StevenElliottMI" target="_blank" class="social-card twitter">
+                            <span class="social-icon">📱</span>
+                            <div class="social-info">
+                                <h4>Twitter</h4>
+                                <p>Breaking news & statements</p>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/StevenElliottMI/" target="_blank" class="social-card instagram">
+                            <span class="social-icon">📷</span>
+                            <div class="social-info">
+                                <h4>Instagram</h4>
+                                <p>Behind-the-scenes content</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="social-item">
-                    <h3>Campaign HQ</h3>
-                    <p>Dearborn, MI 48124 • (313) 555-0123</p>
+
+                <!-- Latest Campaign News -->
+                <div class="news-section">
+                    <h2>Latest from the Campaign</h2>
+                    <div class="news-items">
+                        <article class="news-item-mini">
+                            <div class="news-date">January 8, 2025</div>
+                            <h4>Steven Elliott Announces Congressional Campaign</h4>
+                            <p>Marine veteran and business owner officially launches campaign for Michigan's 12th District</p>
+                        </article>
+                        <article class="news-item-mini">
+                            <div class="news-date">January 5, 2025</div>
+                            <h4>Local Veterans Groups Endorse Elliott</h4>
+                            <p>Multiple veterans organizations announce support for Elliott's conservative platform</p>
+                        </article>
+                        <article class="news-item-mini">
+                            <div class="news-date">January 2, 2025</div>
+                            <h4>Campaign Headquarters Opens in Dearborn</h4>
+                            <p>New campaign office ready to serve volunteers and supporters across the district</p>
+                        </article>
+                    </div>
+                    <a href="news.html" class="btn btn-outline">View All News →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stay Engaged -->
+    <section class="stay-engaged">
+        <div class="container">
+            <div class="stay-engaged-content">
+                <h2 class="section-title">Stay Engaged</h2>
+                <p class="section-subtitle">Join thousands of Michigan conservatives fighting to take back our district</p>
+                <div class="engagement-options">
+                    <div class="engagement-card volunteer-card">
+                        <div class="engagement-icon">🤝</div>
+                        <h3>Volunteer</h3>
+                        <p>Join our grassroots team knocking doors, making calls, and spreading Steven's message</p>
+                        <a href="volunteer.html" class="btn btn-primary">Join the Team</a>
+                    </div>
+                    <div class="engagement-card newsletter-card">
+                        <div class="engagement-icon">📧</div>
+                        <h3>Newsletter</h3>
+                        <p>Get weekly campaign updates, event invitations, and breaking news delivered to your inbox</p>
+                        <form class="newsletter-signup-inline">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="engagement-card events-card">
+                        <div class="engagement-icon">📅</div>
+                        <h3>Attend Events</h3>
+                        <p>Meet Steven in person at town halls, rallies, and community events across the district</p>
+                        <a href="events.html" class="btn btn-primary">See Events</a>
+                    </div>
+                </div>
+                <div class="campaign-contact">
+                    <h3>Campaign Headquarters</h3>
+                    <p>📍 Dearborn, MI 48124 • 📞 (313) 555-0123 • ✉️ info@stevenelliottforcongress.com</p>
                 </div>
             </div>
         </div>
