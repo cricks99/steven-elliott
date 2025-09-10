@@ -47,7 +47,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Donation Amount Selection
+// Donation Amount Selection (enhanced)
 document.querySelectorAll('.amount-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         // Remove active class from all buttons
@@ -57,11 +57,31 @@ document.querySelectorAll('.amount-btn').forEach(btn => {
         
         // Handle custom amount
         if (this.dataset.amount === 'custom') {
-            const customAmount = prompt('Enter custom donation amount:');
+            const customAmount = prompt('Enter custom donation amount (max $2,900):');
             if (customAmount && !isNaN(customAmount)) {
-                this.textContent = `$${customAmount}`;
+                const amount = parseFloat(customAmount);
+                if (amount > 2900) {
+                    alert('Maximum donation amount is $2,900 per election cycle.');
+                    return;
+                }
+                if (amount < 1) {
+                    alert('Minimum donation amount is $1.');
+                    return;
+                }
+                this.textContent = `$${amount}`;
+                this.dataset.amount = amount;
+                document.getElementById('donation-amount').value = amount;
             }
+        } else {
+            document.getElementById('donation-amount').value = this.dataset.amount;
         }
+        
+        // Show immediate feedback
+        const donateBtn = document.querySelector('.btn-donate-large');
+        donateBtn.classList.add('highlight-pulse');
+        setTimeout(() => {
+            donateBtn.classList.remove('highlight-pulse');
+        }, 1000);
     });
 });
 
@@ -259,37 +279,89 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe elements for scroll animations
-document.querySelectorAll('.issue-card, .cta-card').forEach(el => {
+document.querySelectorAll('.issue-card, .cta-card, .bio-section').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
 
-// Header scroll effect
+// Enhanced Header scroll effect
 let lastScroll = 0;
 const header = document.querySelector('.main-header');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    if (currentScroll > 50) {
+        header.classList.add('scrolled');
     } else {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        header.classList.remove('scrolled');
+    }
+    
+    // Hide header on scroll down, show on scroll up
+    if (currentScroll > lastScroll && currentScroll > 200) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
     }
     
     lastScroll = currentScroll;
 });
 
-// Donation button handler
-document.querySelector('.btn-donate-large').addEventListener('click', function() {
-    const selectedAmount = document.querySelector('.amount-btn.active');
-    if (selectedAmount) {
-        const amount = selectedAmount.dataset.amount === 'custom' ? 
-            selectedAmount.textContent.replace('$', '') : 
-            selectedAmount.dataset.amount;
-        alert(`Thank you for your support! You selected to donate $${amount}. You will be redirected to our secure donation page.`);
+// Quick donate functionality
+function quickDonate(amount) {
+    // Remove active class from all buttons
+    document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Add active class to clicked button
+    const clickedBtn = document.querySelector(`[data-amount="${amount}"]`);
+    if (clickedBtn) {
+        clickedBtn.classList.add('active');
+    }
+    
+    // Set the amount in the hidden form field
+    document.getElementById('donation-amount').value = amount;
+    
+    // Scroll to the donation form
+    document.querySelector('.btn-donate-large').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+    });
+    
+    // Add highlight effect to donate button
+    const donateBtn = document.querySelector('.btn-donate-large');
+    donateBtn.classList.add('highlight-pulse');
+    setTimeout(() => {
+        donateBtn.classList.remove('highlight-pulse');
+    }, 2000);
+}
+
+// Donation form handler
+document.getElementById('donation-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let amount = document.getElementById('donation-amount').value;
+    
+    // If no amount selected, check for active button
+    if (!amount) {
+        const selectedAmount = document.querySelector('.amount-btn.active');
+        if (selectedAmount) {
+            amount = selectedAmount.dataset.amount === 'custom' ? 
+                selectedAmount.textContent.replace('$', '') : 
+                selectedAmount.dataset.amount;
+        }
+    }
+    
+    if (amount && amount !== 'custom') {
+        // Simulate redirect to secure donation processor
+        window.open(`https://secure.actblue.com/donate/stevenelliott?amount=${amount}`, '_blank');
+        
+        // Show thank you message
+        alert(`Thank you for your $${amount} contribution! You're being redirected to our secure donation processor.`);
+        
+        // Track conversion (in real implementation, this would be analytics)
+        console.log(`Donation conversion: $${amount}`);
     } else {
         alert('Please select a donation amount.');
     }
@@ -302,4 +374,49 @@ window.addEventListener('load', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+});
+
+// Sticky donate button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const stickyDonate = document.querySelector('.sticky-donate');
+    const donateSection = document.getElementById('donate');
+    
+    if (stickyDonate && donateSection) {
+        window.addEventListener('scroll', () => {
+            const donateRect = donateSection.getBoundingClientRect();
+            const isInView = donateRect.top < window.innerHeight && donateRect.bottom > 0;
+            
+            if (isInView) {
+                stickyDonate.style.display = 'none';
+            } else {
+                stickyDonate.style.display = 'block';
+            }
+        });
+    }
+});
+
+// Donation section enhancements
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-highlight most popular amount
+    setTimeout(() => {
+        const popularBtn = document.querySelector('.amount-popular');
+        if (popularBtn) {
+            popularBtn.classList.add('recommended-flash');
+            setTimeout(() => {
+                popularBtn.classList.remove('recommended-flash');
+            }, 3000);
+        }
+    }, 2000);
+    
+    // Progress bar animation
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+        const targetWidth = progressFill.style.width;
+        progressFill.style.width = '0%';
+        
+        setTimeout(() => {
+            progressFill.style.transition = 'width 2s ease-out';
+            progressFill.style.width = targetWidth;
+        }, 500);
+    }
 });
