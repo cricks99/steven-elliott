@@ -653,49 +653,57 @@ h1, h2, h3, h4, h5, h6 {
 .social-connect {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .social-btn {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     background: var(--white);
-    border: 2px solid transparent;
-    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     text-decoration: none;
     color: var(--dark-gray);
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    min-width: 180px;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .social-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .social-twitter:hover {
     border-color: #1DA1F2;
     color: #1DA1F2;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
 }
 
 .social-facebook:hover {
     border-color: #1877F2;
     color: #1877F2;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
 }
 
 .social-instagram:hover {
     border-color: #E4405F;
     color: #E4405F;
+    background: linear-gradient(135deg, #ffffff 0%, #fef0f4 100%);
 }
 
 .social-icon {
-    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .social-text {
