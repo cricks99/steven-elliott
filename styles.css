@@ -739,6 +739,59 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* Featured Event Card */
+.event-card.featured-event {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #002868 0%, #0056b3 100%);
+    color: white;
+    position: relative;
+    border: 3px solid var(--accent-gold);
+}
+
+.event-card.featured-event::before {
+    content: "FEATURED EVENT";
+    position: absolute;
+    top: -14px;
+    left: 25px;
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.event-card.featured-event .event-date {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+}
+
+.event-card.featured-event h3 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.event-card.featured-event p {
+    color: #f0f0f0;
+}
+
+.event-card.featured-event .event-location {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.event-card.featured-event .btn-primary {
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.event-card.featured-event .btn-primary:hover {
+    background: #e5c100;
+    transform: scale(1.05);
+}
+
 .event-image {
     width: 100%;
     height: 200px;
