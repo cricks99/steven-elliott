@@ -176,53 +176,70 @@
                 </p>
             </div>
             
-            <div class="photo-gallery">
-                <div class="photo-item">
-                    <img src="images/E 1.jpg" alt="Mackinac Republican Leadership Conference">
-                    <div class="photo-caption">
-                        <h4>Conference Keynote</h4>
-                        <p>Mackinac Republican Leadership Conference</p>
+            <div class="photo-carousel">
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+                    
+                    <div class="carousel-slides">
+                        <div class="slide active">
+                            <img src="images/E 1.jpg" alt="Mackinac Republican Leadership Conference">
+                            <div class="photo-caption">
+                                <h4>Conference Keynote</h4>
+                                <p>Mackinac Republican Leadership Conference</p>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/E 2 .jpg" alt="Meeting Patriots at Mackinac">
+                            <div class="photo-caption">
+                                <h4>Meeting Michigan Patriots</h4>
+                                <p>Connecting with Supporters</p>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/E 3 .jpg" alt="Conference Networking">
+                            <div class="photo-caption">
+                                <h4>Conference Networking</h4>
+                                <p>Building Conservative Coalition</p>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/E 4.jpg" alt="Republican Leadership Event">
+                            <div class="photo-caption">
+                                <h4>Leadership Event</h4>
+                                <p>Sharing Our Vision for MI-10</p>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/E 5.jpg" alt="Campaign Kickoff">
+                            <div class="photo-caption">
+                                <h4>Campaign Kickoff</h4>
+                                <p>Packed House of Patriots</p>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <img src="images/E 6.jpg" alt="Conservative Gathering">
+                            <div class="photo-caption">
+                                <h4>Conservative Gathering</h4>
+                                <p>United for Michigan's Future</p>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">❯</button>
                 </div>
                 
-                <div class="photo-item">
-                    <img src="images/E 2 .jpg" alt="Meeting Patriots at Mackinac">
-                    <div class="photo-caption">
-                        <h4>Meeting Michigan Patriots</h4>
-                        <p>Connecting with Supporters</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="images/E 3 .jpg" alt="Conference Networking">
-                    <div class="photo-caption">
-                        <h4>Conference Networking</h4>
-                        <p>Building Conservative Coalition</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="images/E 4.jpg" alt="Republican Leadership Event">
-                    <div class="photo-caption">
-                        <h4>Leadership Event</h4>
-                        <p>Sharing Our Vision for MI-10</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="images/E 5.jpg" alt="Campaign Kickoff">
-                    <div class="photo-caption">
-                        <h4>Campaign Kickoff</h4>
-                        <p>Packed House of Patriots</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="images/E 6.jpg" alt="Conservative Gathering">
-                    <div class="photo-caption">
-                        <h4>Conservative Gathering</h4>
-                        <p>United for Michigan's Future</p>
-                    </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
                 </div>
             </div>
             

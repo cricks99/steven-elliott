@@ -420,3 +420,88 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 });
+
+// Event Photo Carousel Functionality
+let currentSlideIndex = 0;
+
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!slides.length) return;
+    
+    // Remove active class from current slide and dot
+    slides[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Update slide index
+    currentSlideIndex += direction;
+    
+    // Handle wrap around
+    if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    }
+    
+    // Add active class to new slide and dot
+    slides[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+}
+
+function currentSlide(slideIndex) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!slides.length) return;
+    
+    // Remove active class from current slide and dot
+    slides[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Set new slide index (convert to 0-based)
+    currentSlideIndex = slideIndex - 1;
+    
+    // Add active class to new slide and dot
+    slides[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+}
+
+// Auto-advance carousel every 5 seconds
+setInterval(() => {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        changeSlide(1);
+    }
+}, 5000);
+
+// Touch/swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const carousel = document.querySelector('.photo-carousel');
+    if (!carousel) return;
+    
+    const swipeThreshold = 50;
+    const swipeDistance = touchEndX - touchStartX;
+    
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+            // Swipe right - go to previous slide
+            changeSlide(-1);
+        } else {
+            // Swipe left - go to next slide
+            changeSlide(1);
+        }
+    }
+}
