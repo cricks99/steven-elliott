@@ -840,6 +840,156 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
 }
 
+/* Endorsements Section */
+.endorsements-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.endorsements-section .section-title {
+    color: var(--primary-blue);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.endorsement-highlight {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    position: relative;
+    border: 2px solid var(--accent-gold);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.endorsement-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gold);
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+.badge-text {
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.endorsement-title {
+    text-align: center;
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.endorsement-content {
+    text-align: center;
+}
+
+.endorsement-images-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.endorsement-photo,
+.endorsement-graphic {
+    max-width: 400px;
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.endorsement-photo:hover,
+.endorsement-graphic:hover {
+    transform: scale(1.02);
+}
+
+.endorsement-quote {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0056b3 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 800px;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    position: relative;
+}
+
+.endorsement-quote::before {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    color: var(--accent-gold);
+    opacity: 0.5;
+}
+
+.quote-attribution {
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: bold;
+    color: var(--accent-gold);
+    font-size: 1rem;
+}
+
+.endorsement-message {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 40, 104, 0.05);
+    border-radius: 10px;
+}
+
+.endorsement-message p {
+    color: var(--dark-gray);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.endorsement-message p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .endorsement-highlight {
+        padding: 2rem 1.5rem;
+    }
+    
+    .endorsement-images-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .endorsement-photo,
+    .endorsement-graphic {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .endorsement-title {
+        font-size: 1.5rem;
+    }
+    
+    .endorsement-quote {
+        font-size: 1rem;
+        padding: 1.5rem;
+    }
+}
+
 /* Connect Section */
 .connect-section {
     padding: 4rem 0;
