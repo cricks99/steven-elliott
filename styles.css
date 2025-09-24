@@ -902,8 +902,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .endorsement-photo,
 .endorsement-graphic {
-    max-width: 400px;
-    width: 45%;
+    max-width: 280px;
+    width: 40%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -977,7 +977,7 @@ h1, h2, h3, h4, h5, h6 {
     .endorsement-photo,
     .endorsement-graphic {
         width: 100%;
-        max-width: 350px;
+        max-width: 250px;
     }
     
     .endorsement-title {
