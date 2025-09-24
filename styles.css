@@ -1046,12 +1046,15 @@ h1, h2, h3, h4, h5, h6 {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        display: flex;
+        flex-direction: column;
     }
     
     .contact-form {
         padding: 1.5rem;
         overflow-x: hidden;
         max-width: 100%;
+        order: -1; /* Move contact form above contact info on mobile */
     }
     
     .form-row {
