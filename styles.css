@@ -908,6 +908,13 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.endorsement-photo {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: center;
 }
 
 .endorsement-photo:hover,
