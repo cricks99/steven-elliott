@@ -424,7 +424,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Event Photo Carousel Functionality
 let currentSlideIndex = 0;
 
-function changeSlide(direction) {
+// Make functions globally accessible
+window.changeSlide = function(direction) {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     
@@ -449,7 +450,7 @@ function changeSlide(direction) {
     dots[currentSlideIndex].classList.add('active');
 }
 
-function currentSlide(slideIndex) {
+window.currentSlide = function(slideIndex) {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     
@@ -467,13 +468,13 @@ function currentSlide(slideIndex) {
     dots[currentSlideIndex].classList.add('active');
 }
 
-// Auto-advance carousel every 5 seconds
+// Auto-advance carousel every 8 seconds (increased for better user control)
 setInterval(() => {
     const slides = document.querySelectorAll('.slide');
-    if (slides.length > 0) {
-        changeSlide(1);
+    if (slides.length > 0 && window.changeSlide) {
+        window.changeSlide(1);
     }
-}, 5000);
+}, 8000);
 
 // Touch/swipe support for mobile
 let touchStartX = 0;
@@ -498,10 +499,10 @@ function handleSwipe() {
     if (Math.abs(swipeDistance) > swipeThreshold) {
         if (swipeDistance > 0) {
             // Swipe right - go to previous slide
-            changeSlide(-1);
+            window.changeSlide(-1);
         } else {
             // Swipe left - go to next slide
-            changeSlide(1);
+            window.changeSlide(1);
         }
     }
 }
